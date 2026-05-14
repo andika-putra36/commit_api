@@ -1,8 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"commit_api/internal/config"
+)
 
 func main() {
-	fmt.Println("Hello world")
-
+	router := config.InitializeEverything()
+	router.Run(":8888")
 }
