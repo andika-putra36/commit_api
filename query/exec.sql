@@ -37,7 +37,7 @@ SELECT * FROM get_tasks();
 
 CALL delete_task(1);
 
-SELECT * FROM get_task(1);
+SELECT * FROM get_task(4);
 
 ROLLBACK;
 */
