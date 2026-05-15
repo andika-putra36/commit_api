@@ -1,8 +1,10 @@
 /*
-	SELECT * FROM get_tasks()
+	SELECT * FROM get_task(1)
 */
 
-CREATE OR REPLACE FUNCTION get_tasks()
+CREATE OR REPLACE FUNCTION get_task(
+	p_id INT
+)
 RETURNS TABLE (
 	id 				INT
 	, title 		VARCHAR(255)
@@ -24,7 +26,10 @@ AS $$
 	   , tasks.created_at
 	   , tasks.updated_at
 	FROM tasks
-	WHERE created_at::DATE = CURRENT_DATE
+	WHERE 
+		id 						= p_id
+		AND created_at::DATE 	= CURRENT_DATE
 	ORDER BY created_at ASC
+	LIMIT 1
 ;
 $$ LANGUAGE sql;

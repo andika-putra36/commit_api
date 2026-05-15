@@ -15,7 +15,7 @@ CREATE OR REPLACE PROCEDURE create_task(
 )
 AS $$
 BEGIN
-	INSERT INTO task (
+	INSERT INTO tasks (
 		title
 		, subtitle
 		, start_at
@@ -25,6 +25,6 @@ BEGIN
 	    p_title
 	    , p_subtitle
 		, p_start_at
-		, p_finish_at;
-END;
+		, p_finish_at
+;END;
 $$ LANGUAGE plpgsql;
